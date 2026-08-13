@@ -84,6 +84,6 @@ lazy.setup({
     {
     "kylechui/nvim-surround",
     event = "VeryLazy",
-    }
+    },
 })
 
