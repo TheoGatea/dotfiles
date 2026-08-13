@@ -8,11 +8,12 @@ local function tnoremap(key, com) vim.keymap.set('t', key, com, ops) end
 -- utility binds
 inoremap("jj", "<Esc>")
 tnoremap("<C-t>", [[<C-\><C-n>]])
+nnoremap("<leader>tm", "<cmd>term<cr>")
 
 -- window navigation and manipulation binds
 nnoremap("<leader>vs", "<cmd>vs<cr>")
 nnoremap("<leader>hs", "<cmd>split<cr>")
-nnoremap("<leader>t", "<cmd>tabnew<cr>")
+nnoremap("<leader>tb", "<cmd>tabnew<cr>")
 
 nnoremap("<A-h>", "<cmd>wincmd h<cr>")
 nnoremap("<A-j>", "<cmd>wincmd j<cr>")
