@@ -48,8 +48,20 @@ lazy.setup({
       "nvim-telescope/telescope.nvim",
       dependencies = { "nvim-lua/plenary.nvim" },
       keys = {
+        { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files" },
+        { "<leader>rg", "<cmd>Telescope live_grep<cr>", desc = "Live grep" },
         { "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document symbols" },
         { "<leader>fS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Workspace symbols" },
+      },
+      opts = {
+        defaults = {
+          file_ignore_patterns = { "%.git/" },
+        },
+        pickers = {
+          find_files = {
+            find_command = { "fd", "--type", "f", "--hidden", "--exclude", ".git" },
+          },
+        },
       },
     },
     {
@@ -59,13 +71,6 @@ lazy.setup({
       config = function()
         require("telescope").load_extension("fzf")
       end,
-    },
-    {
-      "nvim-telescope/telescope-file-browser.nvim",
-      dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
-      keys = {
-        { "<leader>ff", "<cmd>Telescope file_browser path=%:p:h select_buffer=true auto_depth=true<cr>", desc = "File browser" },
-      },
     },
     {
       'stevearc/oil.nvim',
